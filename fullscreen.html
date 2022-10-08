@@ -28,13 +28,13 @@
     <script>
         function toggleFullScreen() {
             if (!document.fullscreenElement) {
-                if (document.createElement().webkitRequestFullscreen()) {
+                if (document.createElement("div").webkitRequestFullscreen()) {
                     document.getElementById("div").webkitRequestFullscreen();
                 }
-                if (document.createElement().mozRequestFullScreen()) {
+                if (document.createElement("div").mozRequestFullScreen()) {
                     document.getElementById("div").mozRequestFullScreen();
                 }
-                if (document.createElement().requestFullscreen()) {
+                if (document.createElement("div").requestFullscreen()) {
                     document.getElementById("div").requestFullscreen();
                 }
             } else {
