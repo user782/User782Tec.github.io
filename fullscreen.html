@@ -16,7 +16,7 @@
     <script>
         function toggleFullScreen() {
             if (!document.fullscreenElement) {
-                document.getElementById("div").requestFullscreen();
+                document.getElementById("div").webkitRequestFullscreen(); //requestFullscreen()
             } else {
                 if (document.exitFullscreen) {
                     document.exitFullscreen();
