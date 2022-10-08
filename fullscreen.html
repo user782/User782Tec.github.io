@@ -28,14 +28,14 @@
     <script>
         function toggleFullScreen() {
             if (!document.fullscreenElement) {
-                if (document.createElement("div").webkitRequestFullscreen) {
-                    document.getElementById("div").webkitRequestFullscreen();
-                }
-                if (document.createElement("div").mozRequestFullScreen) {
-                    document.getElementById("div").mozRequestFullScreen();
-                }
                 if (document.createElement("div").requestFullscreen) {
                     document.getElementById("div").requestFullscreen();
+                }
+                else if (document.createElement("div").mozRequestFullScreen) {
+                    document.getElementById("div").mozRequestFullScreen();
+                }
+                else if (document.createElement("div").webkitRequestFullscreen) {
+                    document.getElementById("div").webkitRequestFullscreen();
                 }
                 else {
                     alert("当前浏览器不支持全屏显示，请切换浏览器再打开");
