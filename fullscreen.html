@@ -28,7 +28,7 @@
     </style>
 </head>
 <body>
-    <div id="div" class="div"></div>
+    <div id="div" class="div" onclick="toggleFullScreen()"></div>
     <button onclick="toggleFullScreen()">进入全屏模式</button>
     <script>
         function toggleFullScreen() {
@@ -54,6 +54,9 @@
                 }
                 else if (document.webkitExitFullscreen) {
                     document.webkitExitFullscreen();
+                }
+                else {
+                    alert("当前浏览器不支持全屏显示，请切换浏览器再打开");
                 }
             }
         }
