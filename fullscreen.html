@@ -32,20 +32,7 @@
     <button onclick="toggleFullScreen()">进入全屏模式</button>
     <script>
         function toggleFullScreen() {
-            if (!document.fullscreenElement || !document.mozFullScreenElement || !document.webkitFullscreenElement) {
-                if (document.createElement("div").requestFullscreen) {
-                    document.getElementById("div").requestFullscreen();
-                }
-                else if (document.createElement("div").mozRequestFullScreen) {
-                    document.getElementById("div").mozRequestFullScreen();
-                }
-                else if (document.createElement("div").webkitRequestFullscreen) {
-                    document.getElementById("div").webkitRequestFullscreen();
-                }
-                else {
-                    alert("当前浏览器不支持全屏显示，请切换浏览器再打开");
-                }
-            } else {
+            if (document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement) {
                 if (document.exitFullscreen) {
                     document.exitFullscreen();
                 }
@@ -54,6 +41,19 @@
                 }
                 else if (document.webkitExitFullscreen) {
                     document.webkitExitFullscreen();
+                }
+                else {
+                    alert("当前浏览器不支持全屏显示，请切换浏览器再打开");
+                } 
+            } else {
+                if (document.createElement("div").requestFullscreen) {
+                    document.getElementById("div").requestFullscreen();
+                }
+                else if (document.createElement("div").mozRequestFullScreen) {
+                    document.getElementById("div").mozRequestFullScreen();
+                }
+                else if (document.createElement("div").webkitRequestFullscreen) {
+                    document.getElementById("div").webkitRequestFullscreen();
                 }
                 else {
                     alert("当前浏览器不支持全屏显示，请切换浏览器再打开");
