@@ -47,11 +47,11 @@
             ctx.fillStyle = color;
             ctx.beginPath();
             ctx.moveTo(x,y);
-            ctx.moveTo(x,y - (h / 2));
-            ctx.lineTo(x - (w / 2),y - (h / 2));
-            ctx.lineTo(x,y + (h / 2));
+            ctx.moveTo(x,y + (h / 2));
+            ctx.lineTo(x - (w / 2),y);
             ctx.lineTo(x + (w / 2),y - (h / 2));
-            ctx.lineTo(x,y - (h / 2));
+            ctx.lineTo(x + (w / 2),y + (h / 2));
+            ctx.lineTo(x - (w / 2),y);
             ctx.fill();
             ctx.closePath();
         }
