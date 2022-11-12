@@ -26,6 +26,7 @@
         <div onclick="circle()">绘制圆形</div>
         <div onclick="rect()">绘制方形</div>
         <div onclick="triangle()">绘制三角形</div>
+        <div onclick="text()">添加文本</div>
     </body>
     <script>
         var ctx = document.getElementById("canvas").getContext("2d");
@@ -33,7 +34,7 @@
             var x = Number(document.getElementById("pos-x").value);
             var y = Number(document.getElementById("pos-y").value);
             var w = Number(document.getElementById("width").value);
-            var h = Number(document.getElepmentById("height").value);
+            var h = Number(document.getElementById("height").value);
             var color = document.getElementById("color").value;
             ctx.fillStyle = color;
             ctx.fillRect(x - (w / 2),y - (h / 2),w,h);
@@ -63,6 +64,18 @@
             ctx.fillStyle = color;
             ctx.arc(x,y,w / 2,0,Math.PI * 2);
             ctx.fill();
+        }
+        function text() {
+            var x = Number(document.getElementById("pos-x").value);
+            var y = Number(document.getElementById("pos-y").value);
+            var width = document.getElementById("width").value;
+            var color = document.getElementById("color").value;
+            ctx.fillStyle = color;
+            var text = prompt("请输入文本：");
+            var font = prompt("请输入字体：","serif");
+            ctx.font = width + "px " + font;
+            ctx.textAlign = "center";
+            ctx.fillText(text,x,y);
         }
     </script>
 </html>
