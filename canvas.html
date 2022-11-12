@@ -4,10 +4,6 @@
         <meta charset="utf-8">
         <title>Canvas元素测试</title>
         <style>
-            canvas {
-                width: 400px;
-                height: 300px;
-            }
             div {
                 display: inline-block;
                 width: 100px;
@@ -15,17 +11,21 @@
                 background-color: green;
                 text-align: center;
             }
+            input[type=number] {
+                width: 3em;
+            }
         </style>
     </head>
     <body>
-        <canvas id="canvas"></canvas>
-        颜色 <input type="color" id="color">
-        宽 <input type="number" id="width">
-        高 <input type="number" id="height">
-        X坐标 <input type="number" id="pos-x">
+        <canvas id="canvas" width="400" height="300"></canvas><br />
+        颜色 <input type="color" id="color"> 
+        宽 <input type="number" id="width"> 
+        高 <input type="number" id="height"> 
+        X坐标 <input type="number" id="pos-x"> 
         Y坐标 <input type="number" id="pos-y"><br />
         <div onclick="circle()">绘制圆形</div>
         <div onclick="rect()">绘制方形</div>
+        <div onclick="triangle()">绘制三角形</div>
     </body>
     <script>
         var ctx = document.getElementById("canvas").getContext("2d");
@@ -37,6 +37,9 @@
             var color = document.getElementById("color").value;
             ctx.fillStyle = color;
             ctx.fillRect(x,y,w,h);
+        }
+        function triangle() {
+            
         }
     </script>
 </html>
