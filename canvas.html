@@ -39,7 +39,20 @@
             ctx.fillRect(x,y,w,h);
         }
         function triangle() {
-            
+            var x = document.getElementById("pos-x").value;
+            var y = document.getElementById("pos-y").value;
+            var w = document.getElementById("width").value;
+            var h = document.getElementById("height").value;
+            var color = document.getElementById("color").value;
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.moveTo(x,y);
+            ctx.moveTo(x,y - (h / 2));
+            ctx.lineTo(x - (w / 2),y - (h / 2));
+            ctx.lineTo(x,y + (h / 2));
+            ctx.lineTo(x + (w / 2),y - (h / 2));
+            ctx.lineTo(x,y - (h / 2));
+            ctx.fill();
         }
     </script>
 </html>
