@@ -18,14 +18,21 @@
     </head>
     <body>
         <canvas id="canvas"></canvas>
-        X坐标<input type="number" id="x">
-        Y坐标<input type="number" id="y">
-        <input type="number" id="pos-x">
-        <input type="number" id="pos-y"><br />
+        宽 <input type="number" id="width">
+        高 <input type="number" id="height">
+        X坐标 <input type="number" id="pos-x">
+        Y坐标 <input type="number" id="pos-y"><br />
         <div onclick="circle()">绘制圆形</div>
         <div onclick="rect()">绘制方形</div>
     </body>
     <script>
         var ctx = document.getElementById("canvas").getContext("2d");
+        function rect() {
+            var x = document.getElementById("pos-x").value;
+            var y = document.getElementById("pos-y").value;
+            var w = document.getElementById("width").value;
+            var h = document.getElementById("height").value;
+            ctx.fillRect()
+        }
     </script>
 </html>
