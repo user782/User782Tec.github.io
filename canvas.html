@@ -18,6 +18,7 @@
     </head>
     <body>
         <canvas id="canvas"></canvas>
+        颜色 <input type="color" id="color">
         宽 <input type="number" id="width">
         高 <input type="number" id="height">
         X坐标 <input type="number" id="pos-x">
@@ -32,7 +33,9 @@
             var y = document.getElementById("pos-y").value;
             var w = document.getElementById("width").value;
             var h = document.getElementById("height").value;
-            ctx.fillRect()
+            var color = document.getElementById("color").value;
+            ctx.fillStyle(color);
+            ctx.fillRect(x,y,w,h);
         }
     </script>
 </html>
