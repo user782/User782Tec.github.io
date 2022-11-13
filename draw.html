@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Touch模块测试</title>
+        <style>
+            canvas {
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                touch-action: none;
+            }
+            dialog {
+                position: absolute;
+            }
+            input[type=number] {
+                width: 3em;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" onclick="toggleMenu()"></canvas>
+        <dialog id="menu">
+            颜色 <input type="color" id="color">
+            笔刷粗细 <input type="number" id="width" value="2">
+            启用压感 <input type="checkbox" id="force" checked="checked">
+        </dialog>
+        <script>
+            var c = document.getElementById("canvas");
+            var ctx = c.getContext('2d');
+            var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+            c.width = w;
+            c.height = h;
+            function toggleMenu() {
+                if (document.getElementById("menu").open) {
+                    document.getElementById("menu").open = false;
+                }
+                else {
+                    document.getElementById("menu").open = "open";
+                }
+            }
+            c.addEventListener("touchstart",(e) => {
+                ctx.lineWidth = document.getElementById("width").value;
+                ctx.strokeStyle = document.getElementById("color").value;
+                ctx.beginPath();
+                ctx.moveTo(e.touches[0].pageX,e.touches[0].pageY);
+            });
+            c.addEventListener("touchmove",(e) => {
+                if (document.getElementById("force").checked) {
+                    ctx.lineWidth = document.getElementById("width") * e.touches[0].force;
+                }
+                ctx.lineTo(e.touches[0].pageX,e.touches[0].pageY);
+                ctx.stroke();
+                //console.log("触摸坐标：",e.touches[0].clientX,e.touches[0].clientY,"压感：",e.touches[0].force);
+            });
+            c.addEventListener("touchend",(e) => {
+                ctx.stroke();
+            });
+        </script>
+    </body>
+</html>
