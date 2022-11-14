@@ -50,6 +50,7 @@
                 ctx.strokeStyle = document.getElementById("color").value;
                 if (!document.getElementById("tools").value) {
                     ctx.strokeStyle = document.getElementById("tools").value;
+                    console.log(ctx.strokeStyle);
                 }
                 ctx.beginPath();
                 ctx.moveTo(e.touches[0].pageX,e.touches[0].pageY);
