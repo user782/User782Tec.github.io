@@ -27,7 +27,7 @@
             工具 
             <select id="tools">
                 <option>画笔</option>
-                <option value="rgba(0,0,0,0)">橡皮</option>
+                <option value="rubber">橡皮</option>
             </select>
         </dialog>
         <script>
@@ -48,8 +48,8 @@
             c.addEventListener("touchstart",(e) => {
                 ctx.lineWidth = document.getElementById("width").value;
                 ctx.strokeStyle = document.getElementById("color").value;
-                if (!document.getElementById("tools").value) {
-                    ctx.strokeStyle = document.getElementById("tools").value;
+                if (document.getElementById("tools").value == "rubber") {
+                    ctx.strokeStyle = "rgba(0,0,0,0)";
                     console.log(ctx.strokeStyle);
                 }
                 ctx.beginPath();
