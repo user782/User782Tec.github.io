@@ -67,9 +67,9 @@
                 link.href = url;
                 link.download = name + ".png";
                 link.style = "display:none;";
-                document.appendChild(link);
+                document.body.appendChild(link);
                 link.click();
-                document.removeChild(link);
+                document.body.removeChild(link);
             }
             c.addEventListener("touchstart",(e) => {
                 ctx.lineWidth = document.getElementById("width").value;
