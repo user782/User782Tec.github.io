@@ -49,8 +49,7 @@
                 ctx.lineWidth = document.getElementById("width").value;
                 ctx.strokeStyle = document.getElementById("color").value;
                 if (document.getElementById("tools").value == "rubber") {
-                    ctx.strokeStyle = "rgba(0,0,0,0)";
-                    console.log(ctx.strokeStyle);
+                    ctx.strokeStyle = "rgb(255,255,255)";
                 }
                 ctx.beginPath();
                 ctx.moveTo(e.touches[0].pageX,e.touches[0].pageY);
