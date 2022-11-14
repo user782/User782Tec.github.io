@@ -62,6 +62,9 @@
             }
             function download() {
                 var name = prompt("请输入文件名(不带后缀名):","Project");
+                if (!name) {
+                    name = "Project";
+                }
                 var url = c.toDataURL();
                 var link = document.createElement("a");
                 link.href = url;
