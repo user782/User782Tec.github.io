@@ -24,6 +24,11 @@
             颜色 <input type="color" id="color">
             笔刷粗细 <input type="number" id="width" value="2">
             启用压感 <input type="checkbox" id="force" checked="checked">
+            工具 
+            <select id="tools">
+                <option value="null">画笔</option>
+                <option value="rgba(0,0,0,0)">橡皮</option>
+            </select>
         </dialog>
         <script>
             var c = document.getElementById("canvas");
@@ -43,11 +48,14 @@
             c.addEventListener("touchstart",(e) => {
                 ctx.lineWidth = document.getElementById("width").value;
                 ctx.strokeStyle = document.getElementById("color").value;
+                if (!document.getElementById("tools").value) {
+                    ctx.strokeStyle = document.getElementById("tools").value;
+                }
                 ctx.beginPath();
                 ctx.moveTo(e.touches[0].pageX,e.touches[0].pageY);
             });
             c.addEventListener("touchmove",(e) => {
-                if (document.getElementById("force").checked) {
+                if (document.getElementById("force").checked && e.touches[0].force != 0) {
                     ctx.lineWidth = document.getElementById("width") * e.touches[0].force;
                 }
                 ctx.lineTo(e.touches[0].pageX,e.touches[0].pageY);
