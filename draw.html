@@ -37,6 +37,7 @@
                 <option value="rubber">橡皮</option>
             </select><br />
             <div onclick="setSize()">重设画布大小(清除全部内容)</div>
+            <div onclick="download()">导出画布</div>
         </dialog>
         <script>
             var c = document.getElementById("canvas");
@@ -48,6 +49,8 @@
                 h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
                 c.width = w;
                 c.height = h;
+                ctx.fillStyle = "White";
+                ctx.fillRect(0,0,w,h);
             }
             function toggleMenu() {
                 if (document.getElementById("menu").open) {
@@ -56,6 +59,17 @@
                 else {
                     document.getElementById("menu").open = "open";
                 }
+            }
+            function download() {
+                var name = prompt("请输入文件名(不带后缀名):","Project");
+                var url = c.toDataURL();
+                var link = document.createElement("a");
+                link.href = url;
+                link.download = name + ".png";
+                link.style = "display:none;";
+                document.appendChild(link);
+                link.click();
+                document.removeChild(link);
             }
             c.addEventListener("touchstart",(e) => {
                 ctx.lineWidth = document.getElementById("width").value;
