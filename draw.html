@@ -16,6 +16,13 @@
             input[type=number] {
                 width: 3em;
             }
+            div {
+                display: inline-block;
+                width: auto;
+                height: 20px;
+                text-align: center;
+                background-color: green;
+            }
         </style>
     </head>
     <body>
@@ -28,15 +35,20 @@
             <select id="tools">
                 <option>画笔</option>
                 <option value="rubber">橡皮</option>
-            </select>
+            </select><br />
+            <div onclick="setSize()">重设画布大小(清除全部内容)</div>
         </dialog>
         <script>
             var c = document.getElementById("canvas");
             var ctx = c.getContext('2d');
-            var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-            var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-            c.width = w;
-            c.height = h;
+            var w;
+            var h;
+            function setSize() {
+                w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+                h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+                c.width = w;
+                c.height = h;
+            }
             function toggleMenu() {
                 if (document.getElementById("menu").open) {
                     document.getElementById("menu").open = false;
@@ -65,6 +77,7 @@
             c.addEventListener("touchend",(e) => {
                 ctx.stroke();
             });
+            setSize();
         </script>
     </body>
 </html>
